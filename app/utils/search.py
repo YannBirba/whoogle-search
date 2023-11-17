@@ -106,11 +106,11 @@ class Search:
         self.feeling_lucky = q.startswith('! ')
         self.query = q[2:] if self.feeling_lucky else q
         # Check for possible widgets
-        self.widget = "ip" if re.search("([^a-z0-9]|^)my *[^a-z0-9] *(ip|internet protocol)" +
+        self.widget = "ip" if re.search("([^a-z0-9]|^)mon *[^a-z0-9] *(ip|internet protocol)" +
                         "($|( *[^a-z0-9] *(((addres|address|adres|" +
                         "adress)|a)? *$)))", self.query.lower()) else self.widget
         self.widget = 'calculator' if re.search(
-                r"\bcalculator\b|\bcalc\b|\bcalclator\b|\bmath\b",
+                r"\bcalculator\b|\bcalculatrice\b|\bcalc\b|\bcalclator\b|\bmath\b",
                 self.query.lower()) else self.widget
         return self.query
 

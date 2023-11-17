@@ -445,13 +445,7 @@ class Filter:
         elif src.startswith('data:'):
             return
 
-        if src.startswith(LOGO_URL):
-            # Re-brand with Whoogle logo
-            element.replace_with(BeautifulSoup(
-                render_template('logo.html'),
-                features='html.parser'))
-            return
-        elif src.startswith(G_M_LOGO_URL):
+        if src.startswith(G_M_LOGO_URL):
             # Re-brand with single-letter Whoogle logo
             element['src'] = 'static/img/favicon/apple-icon.png'
             element.parent['href'] = 'home'
@@ -501,7 +495,7 @@ class Filter:
         if logo and self.mobile:
             logo['style'] = ('display:flex; justify-content:center; '
                              'align-items:center; color:#685e79; '
-                             'font-size:18px; ')
+                             'font-size:1.1rem; ')
 
         # Fix search bar length on mobile
         try:
@@ -518,9 +512,9 @@ class Filter:
             css = style.string
             css_html_tag = (
                 'html{'
-                'font-family: Roboto, Helvetica Neue, Arial, sans-serif;'
-                'font-size: 14px;'
-                'line-height: 20px;'
+                'font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI";'
+                'font-size: 1rem;'
+                'line-height: 1.5;'
                 'text-size-adjust: 100%;'
                 'word-wrap: break-word;'
                 '}'

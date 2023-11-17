@@ -23,7 +23,6 @@
     <script type="text/javascript" src="{{ cb_url('controller.js') }}"></script>
     <link rel="search" href="opensearch.xml" type="application/opensearchdescription+xml" title="Whoogle Search">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ cb_url('logo.css') }}">
     {% if config.theme %}
         {% if config.theme == 'system' %}
             <style>
@@ -60,9 +59,6 @@
 </head>
 <body id="main">
 <div class="search-container">
-    <div class="logo-container">
-        {{ logo|safe }}
-    </div>
     <form id="search-form" action="search" method="{{ 'get' if config.get_only else 'post' }}">
         <div class="search-fields">
             <div class="autocomplete">
@@ -70,7 +66,7 @@
                     <input type="hidden" name="preferences" value="{{ config.preferences }}" />
                 {% endif %}
                 <input
-                        type="text"
+                        type="search"
                         name="q"
                         id="search-bar"
                         class="home-search"
@@ -81,9 +77,22 @@
                         autocomplete="off"
                         dir="auto">
             </div>
-            <input type="submit" id="search-submit" value="{{ translation['search'] }}">
+            <button type="submit" id="search-submit">
+                Rechercher
+                <svg
+                aria-hidden="true"
+                focusable="false"
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </button>
         </div>
     </form>
+    <div>
+        <ul>
+            <li>
+                <a href="https://cloud.yannbirba.fr" target="_blank">Cloud</a>
+            </li>
+        </ul>
+    </div>
     {% if not config_disabled %}
         <br/>
         <button id="config-collapsible" class="collapsible">{{ translation['config'] }}</button>

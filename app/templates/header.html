@@ -1,14 +1,12 @@
 {% if mobile %}
-    <header>
+    <header class="search-header">
+        <a href="{{ home_url }}" class="home-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </a>
         <div class="header-div">
             <form class="search-form header"
                   id="search-form"
                   method="{{ 'GET' if config.get_only else 'POST' }}">
-                <a class="logo-link mobile-logo" href="{{ home_url }}">
-                    <div id="mobile-header-logo">
-                        {{ logo|safe }}
-                    </div>
-                </a>
                 <div class="H0PQec mobile-input-div">
                     <div class="autocomplete-mobile esbc autocomplete">
                         {% if config.preferences %}
@@ -23,7 +21,7 @@
                                 spellcheck="false"
                                 class="search-bar-input"
                                 name="q"
-                                type="text"
+                                type="search"
                                 value="{{ clean_query(query) }}"
                                 dir="auto">
                         <input id="search-reset" type="reset" value="x">
@@ -47,7 +45,7 @@
                                 <a class="header-tab-a" href="{{ tab_content['href'] }}">{{ tab_content['name'] }}</a>
                             {% endif %}
                         {% endfor %}
-                      <label for="adv-search-toggle" id="adv-search-label" class="adv-search">⚙</label>
+                      <label for="adv-search-toggle" id="adv-search-label" class="adv-search"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-2"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg></label>
                       <input id="adv-search-toggle" type="checkbox">
                         <div class="header-tab-div-end"></div>
                     </div>
@@ -58,14 +56,10 @@
       </div>
     </header>
 {% else %}
-    <header>
-        <div class="logo-div">
-            <a class="logo-link" href="{{ home_url }}">
-                <div class="desktop-header-logo">
-                    {{ logo|safe }}
-                </div>
-            </a>
-        </div>
+    <header class="search-header">
+        <a href="{{ home_url }}" class="home-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </a>
         <div class="search-div">
             <form id="search-form"
                   class="search-form"
@@ -84,7 +78,7 @@
                                 class="search-bar-desktop search-bar-input"
                                 name="q"
                                 spellcheck="false"
-                                type="text"
+                                type="search"
                                 value="{{ clean_query(query) }}"
                                 dir="auto">
                         <input name="tbm" value="{{ search_type }}" style="display: none">
@@ -109,7 +103,7 @@
                               <a class="header-tab-a" href="{{ tab_content['href'] }}">{{ tab_content['name'] }}</a>
                           {% endif %}
                       {% endfor %}
-                      <label for="adv-search-toggle" id="adv-search-label" class="adv-search">⚙</label>
+                      <label for="adv-search-toggle" id="adv-search-label" class="adv-search"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-2"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg></label>
                       <input id="adv-search-toggle" type="checkbox">
                       <div class="header-tab-div-end"></div>
                   </div>
